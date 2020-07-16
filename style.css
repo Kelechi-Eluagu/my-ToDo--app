@@ -1,3 +1,7 @@
 body {
     font-family: 'Poppins', sans-serif;
+    background-color: rgb(233, 231, 231);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
 }

@@ -1,21 +1,23 @@
-let addTask = document.getElementById('addTask');
-let myBtn = document.getElementById('btn');
-let myList = document.querySelector('ul');
+let addedTask = document.getElementById("addTask");
+let myBtn = document.getElementById("btn");
+let myList = document.querySelector("ol");
 
-debugger; 
+// debugger; 
 myBtn.addEventListener("click" , function() {
-    if (addTask.value.length > 0) {
-        let li = document.createElement('li');
-        li.appendChild(document.createTextNode(addTask.value));
-        myList.appendChild('li');
-        addTask.value = "";
+    if (addedTask.value.length > 0) {
+        let li = document.createElement("li");
+        li.appendChild(document.createTextNode(addedTask.value));
+        myList.appendChild(li);
+        addedTask.value = "";
+        // console.log("myBtn");
     };
 });
 addTask.addEventListener("keypress" , function() {
-    if(addTask.value.length > 0 && this.event.keyCode === 13) {
-        let li = document.createElement('li');
+    // console.log(event.which);
+    if(addTask.value.length > 0 && event.keyCode === 13) {
+        let li = document.createElement("li");
         li.appendChild(document.createTextNode(addTask.value));
-        myList.appendChild('li');
+        myList.appendChild(li);
         addTask.value = "";
     };
 });
