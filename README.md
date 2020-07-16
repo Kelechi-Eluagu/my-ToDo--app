@@ -1,2 +1,2 @@
-# my-ToDo--app
+# my-ToDo-app
 A simple todo app.
