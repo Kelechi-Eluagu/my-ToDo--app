@@ -1,6 +1,6 @@
 let addedTask = document.getElementById("addTask");
 let myBtn = document.getElementById("btn");
-let myList = document.querySelector("ol");
+let myList = document.querySelector("ul");
 
 // debugger; 
 myBtn.addEventListener("click" , function() {
