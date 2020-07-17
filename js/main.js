@@ -189,6 +189,7 @@ let addedTask = document.getElementById("addtaskinput");
 let myBtn = document.getElementById("addtaskbtn");
 let myList = document.querySelector("ul");
 let listNode = document.getElementsByTagName("li");
+// let deleteAll = document.getElementById("deleteallbtn")
 
 
 // debugger; 
@@ -232,13 +233,31 @@ for (let i = 0; i < close.length; i++) {
 
 // Add a "checked" symbol when clicking on a list item
 myList.addEventListener("click", function (ev) {
-    if (ev.target.tagName === "li") {
+    if (ev.target.tagName === "LI") {
       ev.target.classList.toggle("checked");
     }
   },
   false
 );
 
+function myFunction() {
+    var deleteAll = document.getElementById("myTask");
+    if (deleteAll.style.display === "none") {
+      deleteAll.style.display = "block";
+    //   deleteAll.style.innerHtml = "Undo";
+    } else {
+      deleteAll.style.display = "none";
+    }
+  }
+// deleteAll.addEventListener("click", function() {
+// //    document.getElementsByTagName("LI").style.visibility = "none";
+//     // document.getElementById("myTask");
+// });
+
+// let deleteAll = function() {
+//     console.log("I am wokring");
+//     // document.getElementById("myTask").style.display = "none";
+//  }
 
 
 
