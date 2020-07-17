@@ -186,12 +186,10 @@
 // })
 
 let addedTask = document.getElementById("addtaskinput");
-// let addedTask = document.getElementById("addedtasklist");
-// let myBtn = document.getElementById("btn");
 let myBtn = document.getElementById("addtaskbtn");
-// let myList = document.querySelector("ul");
 let myList = document.querySelector("ul");
-// let doTask = document.getElementById('doIt');
+let listNode = document.getElementsByTagName("li");
+
 
 // debugger; 
 myBtn.addEventListener("click" , function() {
@@ -200,9 +198,6 @@ myBtn.addEventListener("click" , function() {
         li.appendChild(document.createTextNode(addedTask.value));
         myList.appendChild(li);
         // doTask.style.innerHtml = "Here are all your task to get done!..you can do this";
-        let line = document.createElement("hr");
-        line.style.width(50);
-        document.myList.appendChild(line);
         addedTask.value = "";
     };
 });
@@ -216,6 +211,33 @@ addedTask.addEventListener("keypress" , function() {
         addedTask.value = "";
     };
 });
+
+// Create a "close" button and append it to each list item
+for (let i = 0; i < listNode.length; i++) {
+  let span = document.createElement("SPAN");
+  let txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  listNode[i].appendChild(span);
+};
+
+// Click on a close button to hide the current list item
+let close = document.getElementsByClassName("close");
+for (let i = 0; i < close.length; i++) {
+  close[i].onclick = function () {
+    let div = this.parentElement;
+    div.style.display = "none";
+  };
+};
+
+// Add a "checked" symbol when clicking on a list item
+myList.addEventListener("click", function (ev) {
+    if (ev.target.tagName === "li") {
+      ev.target.classList.toggle("checked");
+    }
+  },
+  false
+);
 
 
 
