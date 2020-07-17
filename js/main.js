@@ -224,10 +224,11 @@ for (let i = 0; i < listNode.length; i++) {
 
 // Click on a close button to hide the current list item
 let close = document.getElementsByClassName("close");
+// debugger;
 for (let i = 0; i < close.length; i++) {
   close[i].onclick = function () {
-    let div = this.parentElement;
-    div.style.display = "none";
+    let li = this.parentElement;
+    li.style.display = "none";
   };
 };
 
@@ -247,8 +248,9 @@ function myFunction() {
     //   deleteAll.style.innerHtml = "Undo";
     } else {
       deleteAll.style.display = "none";
-    }
-  }
+      document.querySelector("#showMsg").value = "Undo";
+    };
+};
 // deleteAll.addEventListener("click", function() {
 // //    document.getElementsByTagName("LI").style.visibility = "none";
 //     // document.getElementById("myTask");
