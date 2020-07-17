@@ -1,37 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>my-todo-app</title>
-    <link rel="stylesheet" type="text/css" href="./style.css">
-    <!-- google fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>myTodo-List</title>
+  <link rel="stylesheet" href="css/font-awesome.min.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
-    <div class="middle">
-        <form action="#" method="">
-            <header class="heading">
-                <h1 id="caption">TODO APP</h1>
-            </header>
-            <div>
-                <label for="task">Add Task</label><br>
-                <input type="text" placeholder="add task here..." id="addTask">
-                <button id="btn">
-                    Add Task
-                </button>
-            </div>
-        </form>
-        <div>
-            <ul>
-                <li>Laugh</li>
-                <li>Smile</li>
-                <li>Care</li>
-            </ol>
+  <!-- <header class="bg-dark mb-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <nav class="navbar justify-content-between">
+            <a class="navbar-brand">Todo List</a>
+          </nav>
         </div>
-
+      </div>
     </div>
-
-    <script src="./script.js"></script>
+  </header> -->
+  <section class="todo-outer mt-3 mt-md-5">
+    <div class="container mt-5">
+      <div class="row justify-content-md-center">
+        <div class="col-12 col-md-8">
+          <h1 class="text-center my-3">Todo List</h1>
+          <div class="todo-inner">
+            <div class="form-row">
+              <div class="col-12 mb-4">
+                <input type="text" class="form-control" placeholder="Enter task to be done" id="addtaskinput" />
+                <input type="hidden" id="saveindex">
+              </div>
+              <div class="col-12 text-center">
+                <button type="button" class="btn btn-success col-5" id="addtaskbtn">
+                  Add Task
+                </button>
+                <button type="button" class="btn btn-success mr-sm-2" id="savetaskbtn" style="display: none;">
+                  Save Task
+                </button>
+                <button type="button" id="deleteallbtn" class="btn btn-danger col-5">
+                  Delete All
+                </button>
+              </div>
+            </div>
+            <div class="to-do-output mt-5">
+              <!-- <table class="table table-striped mt-3 mb-0" id="addedtasklist">
+                
+              </table> -->
+              <div>
+                
+              </div>
+              <ul>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="js/main.js"></script>
 </body>
+
 </html>
