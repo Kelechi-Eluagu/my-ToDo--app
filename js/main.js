@@ -188,20 +188,32 @@
 let addedTask = document.getElementById("addtaskinput");
 let myBtn = document.getElementById("addtaskbtn");
 let myList = document.querySelector("ul");
+let deleteAll = document.getElementById("deleteBtn")
+let task = document.getElementById("myTask");
 let listNode = document.getElementsByTagName("li");
-// let deleteAll = document.getElementById("deleteallbtn")
-
 
 // debugger; 
+// add on add btn
 myBtn.addEventListener("click" , function() {
     if (addedTask.value.length > 0) {
+      // console.log("btn is working");
         let li = document.createElement("li");
         li.appendChild(document.createTextNode(addedTask.value));
         myList.appendChild(li);
         // doTask.style.innerHtml = "Here are all your task to get done!..you can do this";
         addedTask.value = "";
-    };
+        // append close to input
+        for (let i = 0; i < listNode.length; i++) {
+          let span = document.createElement("SPAN");
+          let txt = document.createTextNode("\u00D7");
+          span.className = "close";
+          span.appendChild(txt);
+          listNode[i].appendChild(span);
+          console.log("I am not click able on add btn");
+        };
+    }
 });
+// add on keypress
 addedTask.addEventListener("keypress" , function() {
     // console.log(event.which);
     if (addedTask.value.length > 0 && event.keyCode === 13) {
@@ -211,26 +223,39 @@ addedTask.addEventListener("keypress" , function() {
         // doTask.style.innerHtml = "Here are all your task to get done!..you can do this";
         addedTask.value = "";
     };
-});
+      // append close to input
+    for (let i = 0; i < listNode.length; i++) {
+      let span = document.createElement("SPAN");
+      let txt = document.createTextNode("\u00D7");
+      span.className = "close";
+      span.appendChild(txt);
+      listNode[i].appendChild(span);
+      console.log("I am not click able on keypress");
+    };
 
-// Create a "close" button and append it to each list item
-for (let i = 0; i < listNode.length; i++) {
-  let span = document.createElement("SPAN");
-  let txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  listNode[i].appendChild(span);
-};
+    txt.addEventListener("click", function() {
+      console.log("I am close and i am working");
+      // for (let i = 0; i < close.length; i++) {
+      //   close[i].onclick = function () {
+      //     let li = this.parentElement;
+      //     li.style.display = "none";
+      //   };
+    })
+});
+function remove(el) {
+  var element = el;
+  element.remove();
+}
 
 // Click on a close button to hide the current list item
-let close = document.getElementsByClassName("close");
-// debugger;
-for (let i = 0; i < close.length; i++) {
-  close[i].onclick = function () {
-    let li = this.parentElement;
-    li.style.display = "none";
-  };
-};
+// let close = document.getElementsByClassName("close");
+// // debugger;
+// for (let i = 0; i < close.length; i++) {
+//   close[i].onclick = function () {
+//     let li = this.parentElement;
+//     li.style.display = "none";
+//   };
+// };
 
 // Add a "checked" symbol when clicking on a list item
 myList.addEventListener("click", function (ev) {
@@ -240,30 +265,55 @@ myList.addEventListener("click", function (ev) {
   },
   false
 );
-
-function myFunction() {
-    var deleteAll = document.getElementById("myTask");
-    if (deleteAll.style.display === "none") {
-      deleteAll.style.display = "block";
-    //   deleteAll.style.innerHtml = "Undo";
-    } else {
-      deleteAll.style.display = "none";
-      document.querySelector("#showMsg").value = "Undo";
-    };
-};
-// // edittask
-function edittask(index){
-    let saveindex = document.getElementById("saveindex");
-    let addtaskbtn = document.getElementById("addtaskbtn");
-    let savetaskbtn = document.getElementById("savetaskbtn");
-    saveindex.value = index;
-    let webtask = localStorage.getItem("localtask");
-    let taskObj = JSON.parse(webtask); 
+// let deleteAll = document.getElementById("deleteBtn")
+// let task = document.getElementById("myTask");
+// deleteAll.addEventListener("click", function() {
+  if (deleteAll.style.display === "none") {
+    deleteAll.style.display = "block";
     
-    addtaskinput.value = taskObj[index]['task_name'];
-    addtaskbtn.style.display="none";
-    savetaskbtn.style.display="block";
-}
+  //   deleteAll.style.innerHtml = "Undo";
+
+  } else {
+    deleteAll.style.display = "noe";
+    // document.querySelector("#showMsg").value = "Undo";
+};
+// function myFunction() {
+    // var deleteAll = document.getElementById("myTask");
+    // if (deleteAll.style.display === "none") {
+    //   deleteAll.style.display = "block";
+    //   deleteAll.style.innerHtml = "Undo";
+    // //   deleteAll.style.innerHtml = "Undo";
+    // } else {
+    //   deleteAll.style.display = "none";
+
+    //   // document.querySelector("#showMsg").value = "Undo";
+    // };
+// };
+
+// function myFunction() {
+//     var deleteAll = document.getElementById("myTask");
+//     if (deleteAll.style.display === "none") {
+//       deleteAll.style.display = "block";
+//     //   deleteAll.style.innerHtml = "Undo";
+//     } else {
+//       deleteAll.style.display = "none";
+//       document.querySelector("#showMsg").value = "Undo";
+//     };
+// };
+
+// // // edittask
+// function edittask(index){
+//     let saveindex = document.getElementById("saveindex");
+//     let addtaskbtn = document.getElementById("addtaskbtn");
+//     let savetaskbtn = document.getElementById("savetaskbtn");
+//     saveindex.value = index;
+//     let webtask = localStorage.getItem("localtask");
+//     let taskObj = JSON.parse(webtask); 
+    
+//     addtaskinput.value = taskObj[index]['task_name'];
+//     addtaskbtn.style.display="none";
+//     savetaskbtn.style.display="block";
+// }
 // deleteAll.addEventListener("click", function() {
 // //    document.getElementsByTagName("LI").style.visibility = "none";
 //     // document.getElementById("myTask");
